@@ -1,0 +1,86 @@
+.quick-links-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.parent-card {
+  border-radius: 35px;
+  padding: 80px;
+  width: 80%;
+  max-width: 1750px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border:  solid black;
+  background-color: #db9176;
+}
+
+.child-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.Quickheading {
+  color: black;
+}
+
+.child-card {
+  background-color: #afc2e6;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  width: 45%;
+  max-width: 500px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.child-card:hover {
+  background-color: #8e95f7;
+}
+
+.child-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.child-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.quick-links-heading {
+  font-size: 32px; /* Increase the font size slightly */
+  text-align: center; /* Center-align the heading */
+  margin-bottom: 40px; /* Add space below the heading */
+  font-weight: bold;
+  color: black;
+}
+
+p {
+  font-size: 20px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.child-link {
+  text-decoration: none;
+  color: #5755bd;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.child-link:hover {
+  text-decoration: underline;
+}

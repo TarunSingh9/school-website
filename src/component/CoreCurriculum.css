@@ -1,0 +1,69 @@
+.core-curriculum-container {
+    text-align: center;
+    padding: 20px;
+    margin: 100px;
+  }
+  
+  .curriculum-heading {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    justify-items: center;
+  }
+  
+  .Corecard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    border: 2px solid black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Specific colors for each card */
+  .Corecard.stage-1 {
+    background-color: #9DBDFF;
+    font-style: italic;
+  }
+  
+  .Corecard.stage-2 {
+    background-color: #FFD7C4;
+    font-style: oblique;
+  }
+  
+  .Corecard.stage-3 {
+    background-color: #dad0c0;
+    font-style:italic;
+  }
+  
+  .Corecard h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .Corecard h3 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .Corecard ul {
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .Corecard ul li {
+    margin-bottom: 10px;
+  }
+  
+  .Corecard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: 4px solid black;
+  }
+  
