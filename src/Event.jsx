@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/Event.css';
+import EventPage from './component/EventPage';
 
 const Event = () => {
   return (
@@ -23,7 +24,7 @@ const Event = () => {
           </p>
         </div>
       </div>
-      there is second part
+      <EventPage/>
     </div>
   );
 };

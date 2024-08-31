@@ -1,0 +1,36 @@
+.community-culture {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ec7f7f;
+  }
+  
+  .community-culture h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .carousel {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .carousel-item {
+    width: 30%;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-item p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .carousel-item:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  

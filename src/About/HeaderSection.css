@@ -1,0 +1,18 @@
+.header-section {
+    /* background-image: url('path-to-your-background-image.jpg'); */
+    background-size: cover;
+    background-position: center;
+    color: rgb(243, 230, 230);
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .header-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .header-content p {
+    font-size: 1.5rem;
+  }
+  

@@ -1,72 +1,102 @@
 import React, { useState } from 'react';
-import './AcademicSchedule.css'; // Import the CSS file
+import { FaThumbsUp, FaArrowRight } from 'react-icons/fa';
+import "./AlumniReview.css";
 
-const AcademicSchedule = () => {
-  const [schedule, setSchedule] = useState('summer');
 
-  const summerTiming = [
-    { time: '8:00 AM - 9:00 AM', subject: 'Mathematics' },
-    { time: '9:00 AM - 10:00 AM', subject: 'Science' },
-    { time: '10:00 AM - 11:00 AM', subject: 'English' },
-    { time: '11:00 AM - 12:00 PM', subject: 'Physical Ed.' },
-    { time: '12:00 PM - 1:00 PM', subject: 'Lunch' },
-    { time: '1:00 PM - 2:00 PM', subject: 'History' },
-    { time: '2:00 PM - 3:00 PM', subject: 'Art' },
-  ];
+const AlumniReview = () => {
+  const [reviews, setReviews] = useState([
+    { name: 'John Doe', year: '2020', message: 'Great school with excellent teachers!', likes: 0 },
+    { name: 'Jane Smith', year: '2019', message: 'The best years of my life!', likes: 0 },
+    { name: 'Mike Johnson', year: '2021', message: 'Amazing experience, highly recommend.', likes: 0 },
+    // Add more initial reviews as needed
+  ]);
+  
+  const [newReview, setNewReview] = useState({ name: '', year: '', message: '' });
+  const [currentPage, setCurrentPage] = useState(1);
+  const reviewsPerPage = 9;
 
-  const winterTiming = [
-    { time: '9:00 AM - 10:00 AM', subject: 'Mathematics' },
-    { time: '10:00 AM - 11:00 AM', subject: 'Science' },
-    { time: '11:00 AM - 12:00 PM', subject: 'English' },
-    { time: '12:00 PM - 1:00 PM', subject: 'Physical Ed.' },
-    { time: '1:00 PM - 2:00 PM', subject: 'Lunch' },
-    { time: '2:00 PM - 3:00 PM', subject: 'History' },
-    { time: '3:00 PM - 4:00 PM', subject: 'Art' },
-  ];
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewReview({ ...newReview, [name]: value });
+  };
 
-  const renderTable = (data) => (
-    <div className="relative overflow-x-auto">
-      <table className="w-full text-sm text-left text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-          <tr>
-            <th scope="col" className="px-6 py-3">Summer Timing</th>
-            <th scope="col" className="px-6 py-3 border-l">Winter Timing</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index} className="bg-white border-b">
-              <td className="px-6 py-4">{item.time}</td>
-              <td className="px-6 py-4 border-l">{item.subject}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  const handleAddReview = () => {
+    if (newReview.name && newReview.year && newReview.message) {
+      setReviews([...reviews, { ...newReview, likes: 0 }]);
+      setNewReview({ name: '', year: '', message: '' });
+    }
+  };
+
+  const handleLike = (index) => {
+    const updatedReviews = [...reviews];
+    updatedReviews[index].likes += 1;
+    setReviews(updatedReviews);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(reviews.length / reviewsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
 
   return (
-    <div className="academic-schedule">
-      <h2>Academic Structure</h2>
-      <div className="button-group">
-        <button
-          className={`option-button ${schedule === 'summer' ? 'active' : ''}`}
-          onClick={() => setSchedule('summer')}
-        >
-          Summer Timing
-        </button>
-        <button
-          className={`option-button ${schedule === 'winter' ? 'active' : ''}`}
-          onClick={() => setSchedule('winter')}
-        >
-          Winter Timing
-        </button>
+    <div className="alumni-review">
+      <h1>Alumni Reviews</h1>
+      <div className="review-grid">
+        {currentReviews.map((review, index) => (
+          <div key={index} className="review-card">
+            <h3>{review.name} - {review.year}</h3>
+            <p>{review.message}</p>
+            <button onClick={() => handleLike(indexOfFirstReview + index)}>
+              <FaThumbsUp /> {review.likes}
+            </button>
+          </div>
+        ))}
       </div>
-      <div className="schedule-table">
-        {schedule === 'summer' ? renderTable(summerTiming) : renderTable(winterTiming)}
+      
+      <div className="add-review">
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Name" 
+          value={newReview.name} 
+          onChange={handleInputChange} 
+        />
+        <input 
+          type="text" 
+          name="year" 
+          placeholder="Year of Passout" 
+          value={newReview.year} 
+          onChange={handleInputChange} 
+        />
+        <input 
+          type="text" 
+          name="message" 
+          placeholder="Review Message" 
+          value={newReview.message} 
+          onChange={handleInputChange} 
+        />
+        <button onClick={handleAddReview}>Add Review</button>
+      </div>
+      
+      <div className="pagination">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>Prev</button>
+        <button onClick={handleNextPage} disabled={currentPage >= Math.ceil(reviews.length / reviewsPerPage)}>
+          Next <FaArrowRight />
+        </button>
       </div>
     </div>
   );
 };
 
-export default AcademicSchedule;
+export default AlumniReview;

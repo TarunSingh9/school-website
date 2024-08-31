@@ -1,0 +1,37 @@
+.academic-excellence {
+    padding: 60px 90px;
+    text-align: center;
+    background-color: #df8a8a;
+  }
+  
+  .academic-excellence h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .excellence-grid {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .excellence-item {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .excellence-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .excellence-item p {
+    font-size: 1.2rem;
+  }
+  
+  .excellence-item:hover {
+    background-color: #e2e2e2;
+  }
+  
