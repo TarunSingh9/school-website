@@ -13,7 +13,7 @@
   .login {
     margin-bottom: 20px;
     font-size: 28px;
-    color: #333;
+    color: black;
     font-family: 'Arial', sans-serif;
   }
   
@@ -59,7 +59,7 @@
   /* Signup link styling */
   .signup-link {
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 18px;
   }
   
   .signup-link a {
@@ -72,5 +72,62 @@
   .signup-link a:hover {
     color: #0056b3;
     text-decoration: underline;
+  }
+  
+  /* Responsive Design for Tablets */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+      margin: 80px auto;
+    }
+    
+    .login {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    
+    .login-form input {
+      font-size: 14px;
+      padding: 10px;
+    }
+    
+    .submit-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+    
+    .signup-link {
+      font-size: 32px;
+      color:  black ;
+    }
+  }
+  
+  /* Responsive Design for Phones */
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 15px;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-bottom: 160px;
+    }
+    
+    .login {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .login-form input {
+      font-size: 12px;
+      padding: 8px;
+    }
+    
+    .submit-button {
+      font-size: 18px;
+      padding: 8px;
+    }
+    
+    .signup-link {
+      font-size: 18px;
+    }
   }
   

@@ -1,39 +1,92 @@
 .school-overview {
-    display: flex;
-    margin-left: 200px;
-    margin-right: 200px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    margin-bottom: 60px;
-    padding-right: 40px;
-    background-color: rgb(179, 162, 143);
-    border-radius: 30px;
+  display: flex;
+  margin: 0 auto;
+  padding: 40px;
+  margin-bottom: 60px;
+  background-color: rgb(179, 162, 143);
+  border-radius: 30px;
+  flex-direction: row; /* Default direction */
+}
+
+.overview-text {
+  flex: 1;
+  padding-right: 40px;
+  margin-right: 20px;
+}
+
+.overview-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.overview-text p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.overview-image {
+  flex: 1;
+}
+
+.overview-image img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .school-overview {
+    padding: 30px;
+    flex-direction: row; /* Keep row direction for tablets */
   }
-  
+
   .overview-text {
-    flex: 1;
-    padding-right: 40px;
-    margin-right: 10pc;
+    padding-right: 20px;
+    margin-right: 0;
   }
-  
+
   .overview-text h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .overview-text p {
     font-size: 1.5rem;
-    margin-bottom: 40px;
   }
-  
-  .overview-image {
-    flex: 1;
+
+  .overview-text p {
+    font-size: 1.2rem;
   }
-  
+
   .overview-image img {
-    width: 90%;
-    border-radius: 30px;
+    width: 100%;
   }
-  
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .school-overview {
+    padding: 20px;
+    flex-direction: column; /* Stack items vertically on phones */
+    align-items: center; /* Center content on phones */
+  }
+
+  .overview-text {
+    padding-right: 0;
+    margin-right: 0;
+    text-align: center; /* Center text on phones */
+  }
+
+  .overview-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .overview-text p {
+    font-size: 1rem;
+  }
+
+  .overview-image {
+    order: -1; /* Move the image to the top on phones */
+  }
+
+  .overview-image img {
+    width: 100%;
+    border-radius: 20px;
+  }
+}

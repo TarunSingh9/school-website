@@ -1,3 +1,4 @@
+/* General styling */
 .alumni-review {
   max-width: 1200px;
   min-height: 700px;
@@ -99,4 +100,72 @@
 
 .pagination button:hover:not(:disabled) {
   background-color: #141111;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .review-card {
+    height: auto;
+    padding: 10px;
+  }
+  
+  .review-card h3 {
+    font-size: 1rem;
+  }
+  
+  .review-card p {
+    font-size: 0.9rem;
+  }
+  
+  .add-review input {
+    margin: 0 3px;
+    padding: 8px;
+  }
+  
+  .add-review button {
+    padding: 8px 16px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .review-card {
+    height: auto;
+    padding: 8px;
+  }
+  
+  .review-card h3 {
+    font-size: 0.9rem;
+  }
+  
+  .review-card p {
+    font-size: 0.8rem;
+  }
+  
+  .add-review input {
+    margin: 0 2px;
+    padding: 6px;
+  }
+  
+  .add-review button {
+    padding: 6px 12px;
+  }
+  
+  .pagination button {
+    padding: 6px 12px;
+  }
 }

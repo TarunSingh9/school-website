@@ -10,7 +10,7 @@
   width: 80%;
   max-width: 1750px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border:  solid black;
+  border: solid black;
   background-color: #db9176;
 }
 
@@ -60,9 +60,9 @@
 }
 
 .quick-links-heading {
-  font-size: 32px; /* Increase the font size slightly */
-  text-align: center; /* Center-align the heading */
-  margin-bottom: 40px; /* Add space below the heading */
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
   font-weight: bold;
   color: black;
 }
@@ -83,4 +83,68 @@ p {
 
 .child-link:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .child-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Adjust gap between child cards */
+  }
+
+  .child-card {
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .quick-links-heading {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .icon {
+    font-size: 1.8em;
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .parent-card {
+    padding: 50px;
+    width: 90%;
+  }
+
+  .child-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adjust gap between child cards */
+  }
+
+  .child-card {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .quick-links-heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .child-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon {
+    font-size: 1.6em;
+  }
+
+  p {
+    font-size: 16px;
+  }
 }

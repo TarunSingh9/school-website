@@ -21,6 +21,9 @@ nav ul {
 
 nav ul.open {
     display: flex;
+    flex-direction: column; /* Display as a column in mobile view */
+    width: 100%; /* Take full width in mobile view */
+    background-color: #afc2e6; /* Match background color */
 }
 
 nav ul li {
@@ -63,18 +66,27 @@ nav ul li a[href="/Signup"]:hover {
     background-color: #4a5fa4; 
 }
 
-
 nav .menu {
     display: none; 
     position: absolute;
     top: 0.75rem;
     right: 0.5rem;
+    color: solid black;
     flex-direction: column;
     justify-content: space-between;
     width: 2.25rem;
     height: 2rem;
 }
 
+nav .menu span {
+    display: block;
+    height: 3px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design for Smaller Screens */
 @media (max-width: 480px) {
     nav .menu {
         display: flex; 
@@ -84,10 +96,13 @@ nav .menu {
         align-items: start;
     }
     nav ul {
-        display: none;
+        display: none; /* Hide the nav links by default */
         flex-direction: column;
         width: 100%;
         margin-bottom: 0.25rem;
+    }
+    nav ul.open {
+        display: flex; /* Show the nav links when the menu is open */
     }
     nav ul li {
         width: 100%;
@@ -95,5 +110,15 @@ nav .menu {
     }
     nav ul li a {
         margin: 0.2rem 0.5rem;
+    }
+}
+
+/* Revert to Original Design for Larger Screens */
+@media (min-width: 481px) {
+    nav ul {
+        display: flex; /* Ensure the nav links are displayed as flex */
+    }
+    nav .menu {
+        display: none; /* Hide the hamburger menu on larger screens */
     }
 }

@@ -1,36 +1,78 @@
 .community-culture {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #ec7f7f;
-  }
-  
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #ec7f7f;
+}
+
+/* For large screens (desktops and laptops) */
+.community-culture h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-around;
+}
+
+.carousel-item {
+  width: 30%;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-item p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
   .community-culture h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
-  
+
   .carousel {
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .carousel-item {
-    width: 30%;
+    width: 80%; /* Adjust the width for tablets */
+    margin-bottom: 20px; /* Add some space between items */
   }
-  
-  .carousel-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
+
   .carousel-item p {
-    font-size: 1.2rem;
-    color: #555;
+    font-size: 1rem;
   }
-  
-  .carousel-item:hover img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .community-culture {
+    padding: 30px 10px;
   }
-  
+
+  .community-culture h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .carousel-item {
+    width: 90%; /* Adjust the width for phones */
+  }
+
+  .carousel-item p {
+    font-size: 0.9rem;
+  }
+}
