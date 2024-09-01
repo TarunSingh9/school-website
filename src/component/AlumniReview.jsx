@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { FaThumbsUp, FaArrowRight } from 'react-icons/fa';
+import { FaThumbsUp, FaArrowRight, FaEllipsisV } from 'react-icons/fa';
 import "./AlumniReview.css";
-
 
 const AlumniReview = () => {
   const [reviews, setReviews] = useState([
@@ -55,7 +54,10 @@ const AlumniReview = () => {
       <div className="review-grid">
         {currentReviews.map((review, index) => (
           <div key={index} className="review-card">
-            <h3>{review.name} - {review.year}</h3>
+            <div className="review-header">
+              <h3>{review.name} - {review.year}</h3>
+              <FaEllipsisV className="options-icon" />
+            </div>
             <p>{review.message}</p>
             <button onClick={() => handleLike(indexOfFirstReview + index)}>
               <FaThumbsUp /> {review.likes}

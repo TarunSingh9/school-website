@@ -21,6 +21,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
+  position: relative;
 }
 
 .review-card:hover {
@@ -56,6 +57,9 @@
 
 .add-review {
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .add-review input {
@@ -159,13 +163,28 @@
   .add-review input {
     margin: 0 2px;
     padding: 6px;
+    width: 100%;
   }
   
   .add-review button {
     padding: 6px 12px;
+    width: 100%;
+    margin-top: 10px;
   }
   
   .pagination button {
     padding: 6px 12px;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .options-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
   }
 }
