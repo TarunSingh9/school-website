@@ -1,66 +1,95 @@
-import React, { useState } from 'react';
-import "./css/Signup.css";
+import React, { useState } from 'react'; 
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const [selectedRole, setSelectedRole] = useState('student'); // Default to 'student'
+  const [formData, setFormData] = useState({
+    name: '',
+    classSection: '',
+    rollNumber: '',
+    email: '',
+    password: '',
+  });
 
-  const handleRoleSelection = (role) => {
-    setSelectedRole(role);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted');
+
+    // Check if rollNumber is not null
+    if (!formData.rollNumber) {
+      alert('Roll number cannot be null');
+      return;
+    }
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      alert(res.data.message);
+      
+      // Store user data in localStorage for the Profile page
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+      
+      // Redirect to Profile page after successful signup
+      navigate('/profile');
+    } catch (error) {
+      console.error('Error during signup:', error);
+      if (error.response && error.response.data && error.response.data.message) {
+        alert(error.response.data.message);
+      } else {
+        alert('An unexpected error occurred');
+      }
+    }
   };
 
   return (
-    <div className="signup-container">
-      <h2 className='signuphead'>Signup & Registration Page</h2>
-      <div className="role-selection">
-        <button
-          className={selectedRole === 'student' ? 'active' : ''}
-          onClick={() => handleRoleSelection('student')}
-        >
-          Student Signup
-        </button>
-        <button
-          className={selectedRole === 'teacher' ? 'active' : ''}
-          onClick={() => handleRoleSelection('teacher')}
-        >
-          Teacher Signup
-        </button>
-      </div>
-      <form onSubmit={handleSubmit} className="signup-form">
-        {selectedRole === 'student' && (
-          <>
-            <h3 className='subheadsign'>Name of the student</h3>
-            <input type="text" name="name" placeholder="Name" required />
-            <h3 className='subheadsign'>Enter Your Class and Section</h3>
-            <input type="text" name="class" placeholder="Enter Your Class and Section" required />
-            <h3 className='subheadsign'>Email</h3>
-            <input type="email" name="email" placeholder="Email" required />
-            <h3 className='subheadsign'>Enter your roll number</h3>
-            <input typeo='number' name='enter your roll number' placeholder='roll number' required/>
-            <h3 className='subheadsign'>Password</h3>
-            <input type="password" name="password" placeholder="Password" required />
-            <h3 className='subheadsign'>Confirm Password</h3>
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
-          </>
-        )}
-        {selectedRole === 'teacher' && (
-          <>
-            <h3 className='subheadsign'>Name</h3>
-            <input type="text" name="name" placeholder="Name" required />
-            <h3 className='subheadsign'>Email</h3>
-            <input type="email" name="email" placeholder="Email" required />
-            <h3 className='subheadsign'>Password</h3>
-            <input type="password" name="password" placeholder="Password" required />
-            <h3 className='subheadsign'>Confirm Password</h3>
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
-          </>
-        )}
-        <button type="submit" className="submit-button">Submit</button>
+    <div>
+      <h2>Signup</h2>
+      <form onSubmit={handleSignup}>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Class & Section"
+          name="classSection"
+          value={formData.classSection}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Roll No"
+          name="rollNumber"
+          value={formData.rollNumber}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Signup</button>
       </form>
     </div>
   );

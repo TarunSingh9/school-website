@@ -1,0 +1,198 @@
+.attendance-grid-container {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background: linear-gradient(145deg, #FEF9D9, #e6e6e6);
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.attendance-grid-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Filter Styles */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-container select {
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Legend Styles */
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  font-size: 14px;
+  color: #555;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.legend-color.present {
+  background-color: #66bb6a;
+}
+
+.legend-color.half-day {
+  background-color: #ffa726;
+}
+
+.legend-color.absent {
+  background-color: #ef5350;
+}
+
+.legend-color.not-taken {
+  background-color: #e0e0e0;
+}
+
+/* Grid Background */
+.year-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffff;
+  padding: 20px;
+  margin-left: 160px;
+  margin-right: 160px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Month grid layout */
+.month-grid {
+  flex: 1 1 calc(25% - 40px); /* Four columns */
+  margin: 20px;
+  background-color: #ffff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.month-grid h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days in a week */
+}
+
+/* Day Cell styles */
+.grid-cell {
+  margin: 1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  transition: transform 0.2s;
+}
+
+/* Status Styles */
+.grid-cell.present {
+  background-color: #66bb6a;
+}
+
+.grid-cell.absent {
+  background-color: #ef5350;
+}
+
+.grid-cell.half-day {
+  background-color: #ffa726;
+}
+
+.grid-cell:not(.present):not(.absent):not(.half-day) {
+  background-color: #e0e0e0;
+}
+
+/* Hover Effects */
+.grid-cell:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .month-grid {
+    flex: 1 1 calc(50% - 40px); /* Two columns */
+  }
+
+  .year-grid {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .filter-container select {
+    width: 100px;
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .month-grid {
+    flex: 1 1 100%; /* One column */
+  }
+
+  .year-grid {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .legend-item {
+    margin-bottom: 10px;
+  }
+
+  .attendance-grid-container h2 {
+    font-size: 18px;
+  }
+
+  .filter-container label {
+    font-size: 8px;
+  }
+
+  .filter-container select {
+    font-size: 8px;
+  }
+
+  .grid-cell {
+    width: 20px;
+    height: 20px;
+  }
+}
