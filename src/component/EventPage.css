@@ -1,0 +1,109 @@
+.eventpage-card {
+  padding: 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.eventpagehead {
+  font-size: 40px;
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.parentpagecard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px; /* 5px space between child cards */
+}
+
+.eventpagecard {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.eventpagecard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.eventpagecard:hover .event-image {
+  transform: scale(1.05);
+  border: 2px solid #007bff;
+}
+
+.event-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.event-info h3 {
+  color: #508ac9;
+  margin-bottom: 10px;
+}
+
+.event-info p {
+  color: #555;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 20px;
+  }
+
+  .event-image {
+    height: 250px; /* Adjust image height on tablets */
+  }
+
+  .eventpagehead {
+    font-size: 35px; /* Adjust heading size on tablets */
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .event-grid {
+    grid-template-columns: 1fr; /* 1 column on phones */
+    gap: 15px;
+  }
+
+  .event-image {
+    height: 200px; /* Adjust image height on phones */
+  }
+
+  .eventpagehead {
+    font-size: 30px; /* Adjust heading size on phones */
+  }
+
+  .event-info h3 {
+    font-size: 18px; /* Adjust event title size on phones */
+  }
+
+  .event-info p {
+    font-size: 14px; /* Adjust event description size on phones */
+  }
+}

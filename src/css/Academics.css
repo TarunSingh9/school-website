@@ -1,12 +1,26 @@
 .academics-container {
-    background-color: #afc2e6;
-    padding-bottom: 50px;
-    text-align: center;
-  }
-  
+  background-color: #afc2e6;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.academics-heading {
+  color: black;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
   .academics-heading {
-    color: black;
-    font-size: 56px;
-    font-weight: bold;
+    font-size: 40px; /* Adjust the font size for tablets */
   }
-  
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .academics-heading {
+    font-size: 32px; /* Further adjust the font size for phones */
+    padding: 20px; /* Add padding for better spacing on small screens */
+  }
+}

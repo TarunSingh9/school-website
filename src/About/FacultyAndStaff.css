@@ -1,0 +1,109 @@
+.faculty-staff {
+  background-color: #717fa7;
+  padding: 50px 90px;
+  text-align: center;
+}
+
+/* For large screens (desktops and laptops) */
+.faculty-staff h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.faculty-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Faculty card styles */
+.faculty-card {
+  width: 30%;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-card img {
+  width: 100%;
+  border-radius: 20%;
+  margin-bottom: 20px;
+}
+
+.faculty-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.faculty-card p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.faculty-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .faculty-staff {
+    padding: 40px 30px;
+  }
+  
+  .faculty-staff h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .faculty-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .faculty-card {
+    width: 45%; /* Adjust the width for tablets */
+    padding: 15px;
+  }
+  
+  .faculty-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .faculty-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .faculty-staff {
+    padding: 20px 15px;
+  }
+  
+  .faculty-staff h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .faculty-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .faculty-card {
+    width: 90%; /* Adjust the width for phones */
+    padding: 10px;
+  }
+  
+  .faculty-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .faculty-card p {
+    font-size: 0.9rem;
+  }
+}

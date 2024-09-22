@@ -23,12 +23,13 @@ const AdmissionForm = () => {
     });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        console.log(JSON.stringify(formData, null, 2)); // Logs data as formatted JSON
     };
 
     return (

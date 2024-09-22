@@ -1,0 +1,90 @@
+.academic-excellence {
+  padding: 60px 90px;
+  text-align: center;
+  background-color: #df8a8a;
+}
+
+.academic-excellence h2 {
+  font-size: 2.5rem; /* Font size for larger screens */
+  margin-bottom: 40px;
+}
+
+.excellence-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+.excellence-item {
+  width: 30%; /* Width for larger screens */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Spacing between items on smaller screens */
+}
+
+.excellence-item h3 {
+  font-size: 1.8rem; /* Font size for larger screens */
+  margin-bottom: 15px;
+}
+
+.excellence-item p {
+  font-size: 1.2rem; /* Font size for larger screens */
+}
+
+.excellence-item:hover {
+  background-color: #e2e2e2;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .academic-excellence {
+    padding: 40px 30px; /* Adjust padding for tablets */
+  }
+
+  .academic-excellence h2 {
+    font-size: 2rem; /* Adjust heading size on tablets */
+  }
+
+  .excellence-grid {
+    flex-direction: column; /* Stack items vertically on tablets */
+    align-items: center; /* Center items on tablets */
+  }
+
+  .excellence-item {
+    width: 80%; /* Adjust width for tablets */
+  }
+
+  .excellence-item h3 {
+    font-size: 1.5rem; /* Adjust heading size on tablets */
+  }
+
+  .excellence-item p {
+    font-size: 1rem; /* Adjust paragraph size on tablets */
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .academic-excellence {
+    padding: 20px 10px; /* Adjust padding for phones */
+  }
+
+  .academic-excellence h2 {
+    font-size: 1.5rem; /* Adjust heading size on phones */
+  }
+
+  .excellence-item {
+    width: 100%; /* Full width for phone screens */
+    padding: 15px; /* Adjust padding for phones */
+  }
+
+  .excellence-item h3 {
+    font-size: 1.2rem; /* Adjust heading size on phones */
+  }
+
+  .excellence-item p {
+    font-size: 0.9rem; /* Adjust paragraph size on phones */
+  }
+}

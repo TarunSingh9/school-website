@@ -8,7 +8,7 @@ import ContactUs from './ContactUs';
 import About from './About';
 import Login from './Login';
 import Signup from './Signup';
-
+import Profile from './Profile';
 import { Route, Routes } from 'react-router-dom';
 import AdmissionForm from './component/AdmissionForm';
 import AlumniReview from './component/AlumniReview';
@@ -25,6 +25,7 @@ function App() {
      <Route path="/about" element={<About/>} />
      <Route path="/login" element={<Login/>} />
      <Route path="/signup" element={<Signup/>} />
+     <Route path="/profile" element={<Profile/>}/>
      <Route path="/AdmissionForm" element={<AdmissionForm/>}/>
      <Route path="/Alumni-Review" element={<AlumniReview/>}/>
     </Routes>
