@@ -1,95 +1,194 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './css/Signup.css';
+import { FaUserGraduate, FaChalkboardTeacher } from 'react-icons/fa';
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
+  const [userType, setUserType] = useState('student');
+  const [studentFormData, setStudentFormData] = useState({
     name: '',
     classSection: '',
     rollNumber: '',
+    dateOfBirth: '',
+    phoneNumber: '',
     email: '',
     password: '',
+    confirmPassword: ''
   });
 
+  const [teacherFormData, setTeacherFormData] = useState({
+    name: '',
+    email: '',
+    dateOfBirth: '',
+    coreSubject: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleUserTypeChange = (type) => {
+    setUserType(type);
+    setErrors({}); // Clear errors when switching types
+  };
+
+  const handleChange = (e, type) => {
+    const { name, value } = e.target;
+
+    // Only allow numbers for phoneNumber
+    if (name === 'phoneNumber') {
+      if (!/^\d*$/.test(value)) {
+        return; // Return if non-numeric value is entered
+      }
+    }
+
+    if (type === 'student') {
+      setStudentFormData(prev => ({ ...prev, [name]: value }));
+    } else {
+      setTeacherFormData(prev => ({ ...prev, [name]: value }));
+    }
+    setErrors(prev => ({ ...prev, [name]: '' })); // Clear specific field error on change
+  };
+
+  const validateForm = (data) => {
+    const newErrors = {};
+    if (!data.email.includes('@')) {
+      newErrors.email = 'Invalid email address.';
+    }
+    if (data.password !== data.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match.';
+    }
+    if (!/^(?=.*[!@#$%^&*])/.test(data.password)) {
+      newErrors.password = 'Password must contain at least one special character.';
+    }
+    if (!/^\d{10}$/.test(data.phoneNumber)) {
+      newErrors.phoneNumber = 'Phone number must contain exactly 10 digits.';
+    }
+    return newErrors;
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    // Check if rollNumber is not null
-    if (!formData.rollNumber) {
-      alert('Roll number cannot be null');
+    const formData = userType === 'student' ? studentFormData : teacherFormData;
+    const formErrors = validateForm(formData);
+
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      setLoading(false);
       return;
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
-      alert(res.data.message);
-      
-      // Store user data in localStorage for the Profile page
-      localStorage.setItem('user', JSON.stringify(res.data.user));
-      
-      // Redirect to Profile page after successful signup
-      navigate('/profile');
+      const response = await axios.post(
+        `http://localhost:5000/api/${userType}/signup`, // Updated path
+        formData
+      );
+      alert(response.data.message);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      navigate(`/${userType}-profile`);
     } catch (error) {
-      console.error('Error during signup:', error);
-      if (error.response && error.response.data && error.response.data.message) {
-        alert(error.response.data.message);
-      } else {
-        alert('An unexpected error occurred');
-      }
+      alert(error.response?.data?.message || 'An unexpected error occurred');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Signup</h2>
-      <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Class & Section"
-          name="classSection"
-          value={formData.classSection}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Roll No"
-          name="rollNumber"
-          value={formData.rollNumber}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Signup</button>
+      <div className="signup-buttons">
+        <button
+          className={`signup-btn ${userType === 'student' ? 'active' : ''}`}
+          onClick={() => handleUserTypeChange('student')}
+          aria-label="Student Signup"
+        >
+          <FaUserGraduate /> Student Signup
+        </button>
+        <button
+          className={`signup-btn ${userType === 'teacher' ? 'active' : ''}`}
+          onClick={() => handleUserTypeChange('teacher')}
+          aria-label="Teacher Signup"
+        >
+          <FaChalkboardTeacher /> Teacher Signup
+        </button>
+      </div>
+      <form onSubmit={handleSignup} className="signup-form">
+        {userType === 'student' ? (
+          <>
+            {/* Student form fields */}
+            {Object.entries(studentFormData).map(([key, value]) => (
+              key !== 'confirmPassword' ? (
+                <div key={key}>
+                  <input
+                    type={key === 'password' ? 'password' : key === 'email' ? 'email' : key === 'dateOfBirth' ? 'date' : 'text'}
+                    placeholder={key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
+                    name={key}
+                    value={value}
+                    onChange={e => handleChange(e, 'student')}
+                    className="form-input"
+                    required
+                    aria-label={key}
+                  />
+                </div>
+              ) : null
+            ))}
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              value={studentFormData.confirmPassword}
+              onChange={e => handleChange(e, 'student')}
+              className="form-input"
+              required
+              aria-label="Confirm Password"
+            />
+            {Object.keys(errors).map(key => (
+              errors[key] && <div className="error" key={key}>{errors[key]}</div>
+            ))}
+          </>
+        ) : (
+          <>
+            {/* Teacher form fields */}
+            {Object.entries(teacherFormData).map(([key, value]) => (
+              key !== 'confirmPassword' ? (
+                <div key={key}>
+                  <input
+                    type={key === 'password' ? 'password' : key === 'email' ? 'email' : key === 'dateOfBirth' ? 'date' : 'text'}
+                    placeholder={key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
+                    name={key}
+                    value={value}
+                    onChange={e => handleChange(e, 'teacher')}
+                    className="form-input"
+                    required
+                    aria-label={key}
+                  />
+                </div>
+              ) : null
+            ))}
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              value={teacherFormData.confirmPassword}
+              onChange={e => handleChange(e, 'teacher')}
+              className="form-input"
+              required
+              aria-label="Confirm Password"
+            />
+            {Object.keys(errors).map(key => (
+              errors[key] && <div className="error" key={key}>{errors[key]}</div>
+            ))}
+          </>
+        )}
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? 'Signing up...' : 'Signup'}
+        </button>
       </form>
     </div>
   );

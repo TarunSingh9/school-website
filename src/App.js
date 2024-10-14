@@ -8,10 +8,13 @@ import ContactUs from './ContactUs';
 import About from './About';
 import Login from './Login';
 import Signup from './Signup';
-import Profile from './Profile';
+//import Profile from './Profile';
 import { Route, Routes } from 'react-router-dom';
 import AdmissionForm from './component/AdmissionForm';
 import AlumniReview from './component/AlumniReview';
+import AdminProfile from './AdminProfile';
+import TeacherProfile from './Profile/TeacherProfile';
+import StudentProfile from './Profile/StudentProfile';
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
      <Route path="/about" element={<About/>} />
      <Route path="/login" element={<Login/>} />
      <Route path="/signup" element={<Signup/>} />
-     <Route path="/profile" element={<Profile/>}/>
+     <Route path="/student-profile" element={<StudentProfile/>}/>
+     <Route path="/teacher-profile" element={<TeacherProfile/>}/>
+     <Route path="/admin-profile" element={<AdminProfile/>}/>
      <Route path="/AdmissionForm" element={<AdmissionForm/>}/>
      <Route path="/Alumni-Review" element={<AlumniReview/>}/>
     </Routes>
