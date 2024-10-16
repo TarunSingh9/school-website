@@ -26,16 +26,20 @@ const Login = () => {
       password,
     };
 
-    console.log("Login data being sent:", loginData); // Log the data before sending
-
     let url = '';
 
     if (userType === 'student') {
-      url = 'http://localhost:5000/api/student/login';
+      url = 'http://localhost:5000/api/students/login';
     } else if (userType === 'teacher') {
-      url = 'http://localhost:5000/api/teacher/login';
+      url = 'http://localhost:5000/api/teachers/login';
     } else if (userType === 'admin') {
-      url = 'http://localhost:5000/api/admin/login';
+      // Admin credentials check without backend API call
+      if (email === 'admin123@gmail.com' && dateOfBirth === '2025-03-01' && password === 'admin@003') {
+        navigate('/admin-profile');
+      } else {
+        alert('Invalid Admin Credentials');
+      }
+      return;
     }
 
     try {
@@ -47,8 +51,6 @@ const Login = () => {
           navigate('/student-profile');
         } else if (userType === 'teacher') {
           navigate('/teacher-profile');
-        } else if (userType === 'admin') {
-          navigate('/admin-profile');
         }
       }, 1500); // Delay of 1.5 seconds
 
@@ -59,17 +61,9 @@ const Login = () => {
       console.error('Error during login:', error);
 
       if (error.response) {
-        console.error('Response data:', error.response.data);
-        console.error('Response status:', error.response.status);
-        console.error('Response headers:', error.response.headers);
-
         alert(error.response.data.message || 'Error: Something went wrong during login');
-      } else if (error.request) {
-        console.error('Request data:', error.request);
-        alert('Error: No response from the server. Please try again later.');
       } else {
-        console.error('Error message:', error.message);
-        alert('Error: Failed to make the request. Please try again later.');
+        alert('Error: No response from the server. Please try again later.');
       }
     } finally {
       setLoading(false);

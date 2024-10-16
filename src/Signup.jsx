@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './css/Signup.css';
@@ -86,7 +86,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/${userType}/signup`, // Updated path
+        `http://localhost:5000/api/${userType}s/signup`, // Corrected path
         formData
       );
       alert(response.data.message);
