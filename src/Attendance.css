@@ -1,0 +1,71 @@
+/* General styles for the Attendance component */
+.attendance-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .attendance-container select {
+    margin: 20px 0;
+    padding: 8px;
+    width: 200px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .attendance-container button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .attendance-container button .icon {
+    margin-right: 5px;
+  }
+  
+  
+  .attendance-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .attendance-container th, .attendance-container td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Styling the table header */
+  .attendance-container th {
+    background-color: #f4f4f4;
+  }
+  
+  /* Styles for the buttons */
+  .attendance-container button {
+    padding: 8px 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+  }
+  
+  /* Specific styles for the 'Mark Present' button */
+  .attendance-container button.mark-present {
+    background-color: red;
+  }
+  
+  .attendance-container button.mark-present:hover {
+    background-color: green;
+  }
+  
+  /* Submit button style */
+  .attendance-container button.submit {
+    background-color: #4CAF50;
+  }
+  
+  .attendance-container button.submit:hover {
+    background-color: #45a049;
+  }
+  

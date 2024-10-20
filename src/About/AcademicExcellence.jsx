@@ -1,6 +1,7 @@
 import React from 'react';
 import './AcademicExcellence.css';
 
+
 const AcademicExcellence = () => {
   return (
     <div className="academic-excellence">
@@ -19,6 +20,7 @@ const AcademicExcellence = () => {
           <p>Our alumni have gone on to achieve great success in various fields, making us proud.</p>
         </div>
       </div>
+   
     </div>
   );
 };

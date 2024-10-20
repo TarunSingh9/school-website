@@ -15,6 +15,7 @@ import AlumniReview from './component/AlumniReview';
 import AdminProfile from './AdminProfile';
 import TeacherProfile from './Profile/TeacherProfile';
 import StudentProfile from './Profile/StudentProfile';
+import Attendance from './Attendence';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
      <Route path="/admin-profile" element={<AdminProfile/>}/>
      <Route path="/AdmissionForm" element={<AdmissionForm/>}/>
      <Route path="/Alumni-Review" element={<AlumniReview/>}/>
+     <Route path="/student-attendence" element={<Attendance/>}/>
     </Routes>
     <Footer/>
    </div>
