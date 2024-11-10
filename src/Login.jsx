@@ -29,9 +29,9 @@ const Login = () => {
     let url = '';
 
     if (userType === 'student') {
-      url = 'http://localhost:5000/api/students/login';
+      url = 'http://localhost:3000/api/students/login';
     } else if (userType === 'teacher') {
-      url = 'http://localhost:5000/api/teachers/login';
+      url = 'http://localhost:3000/api/teachers/login';
     } else if (userType === 'admin') {
       // Admin credentials check without backend API call
       if (email === 'admin123@gmail.com' && dateOfBirth === '2025-03-01' && password === 'admin@003') {

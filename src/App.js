@@ -15,7 +15,7 @@ import AlumniReview from './component/AlumniReview';
 import AdminProfile from './AdminProfile';
 import TeacherProfile from './Profile/TeacherProfile';
 import StudentProfile from './Profile/StudentProfile';
-import Attendance from './Attendence';
+import Attendance from './Attendance';
 
 function App() {
   return (

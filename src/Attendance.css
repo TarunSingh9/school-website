@@ -1,79 +1,145 @@
+/* Overall Container */
 .attendance-container {
-  width: 80%;
-  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
   font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
 }
 
-.attendance-title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.attendance-subtitle {
-  font-size: 16px;
-  text-align: center;
+h1 {
+  font-size: 1.8em;
   margin-bottom: 20px;
+  color: #333;
 }
 
-.filter-section {
+/* Class Grid Layout */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.class-card {
+  background-color: #f5a15c;
+  padding: 15px;
+  height: 90px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  position: relative;
+}
+
+.class-card:hover {
+  transform: scale(1.05);
+}
+
+.class-card.selected {
+  background-color: #67affc;
+  color: white;
+}
+
+.class-card h4 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.attendance-emoji {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 1.2em;
+}
+
+/* Section Buttons */
+.section-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.student-table {
+.section-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #d1d1d1;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s;
+}
+
+.section-button.active, .section-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #6aacf1;
+  color: black;
+  transition: background-color 0.2s ease, transform 0.2s;
+}
+
+.action-button:hover {
+  background-color: #3b9aff;
+  transform: scale(1.05);
+}
+
+/* Attendance Table */
+.attendance-table {
+  margin-top: 30px;
+  text-align: left;
+  display: inline-block;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.attendance-table h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.student-table th,
-.student-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-.student-table th {
-  background-color: #f2f2f2;
-}
-
-.mark-present,
-.mark-absent {
-  padding: 5px 10px;
-  margin: 2px;
-  border: none;
-  cursor: pointer;
-}
-
-.mark-present {
-  background-color: #4caf50;
-  color: white;
-}
-
-.mark-absent {
-  background-color: #f44336;
-  color: white;
-}
-
-.submit-attendance,
-.back-button {
-  display: inline-block;
-  margin-top: 20px;
+th, td {
   padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-input,
-select {
+th {
+  font-weight: bold;
+  color: #333;
+}
+
+td input, td select {
+  width: 100%;
   padding: 5px;
-  font-size: 14px;
-}
-
-button {
-  cursor: pointer;
-  font-size: 14px;
-  padding: 5px 10px;
 }

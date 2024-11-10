@@ -16,7 +16,7 @@ const AdminProfile = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/admin/logs');
+            const response = await axios.get('http://localhost:3000/api/admin/logs');
             setStudentLogs(response.data.students);
             setTeacherLogs(response.data.teachers);
         } catch (error) {
@@ -31,7 +31,7 @@ const AdminProfile = () => {
 
     const saveEdit = async () => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/admin/${editingLog.userType}/${editingLog.email}`, editingLog);
+            const response = await axios.put(`http://localhost:3000/api/admin/${editingLog.userType}/${editingLog.email}`, editingLog);
             if (editingLog.userType === 'student') {
                 setStudentLogs(prevLogs => prevLogs.map(log => log.email === editingLog.email ? { ...log, ...response.data } : log));
             } else {

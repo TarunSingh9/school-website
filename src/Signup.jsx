@@ -86,7 +86,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/${userType}s/signup`, // Corrected path
+        `http://localhost:3000/api/${userType}s/signup`, // Corrected path
         formData
       );
       alert(response.data.message);
