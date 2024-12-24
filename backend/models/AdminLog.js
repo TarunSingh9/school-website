@@ -1,13 +1,9 @@
-// models/AdminLog.js
-
 const mongoose = require('mongoose');
 
 const adminLogSchema = new mongoose.Schema({
-  userType: { type: String, required: true }, // 'student' or 'teacher'
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  phoneNumber: { type: String, required: true },
-  timestamp: { type: Date, default: Date.now },
+  action: { type: String, required: true }, // Action performed by admin
+  details: { type: String, required: true }, // Additional details about the action
+  timestamp: { type: Date, default: Date.now }, // Timestamp of the action
 });
 
 module.exports = mongoose.model('AdminLog', adminLogSchema);
