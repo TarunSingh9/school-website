@@ -1,0 +1,199 @@
+.attendance-grid-container {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #ffff;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.attendance-grid-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Filter Styles */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-container select {
+  margin-left: 5px;
+  padding: 10px; /* Increased padding for better visibility */
+  font-size: 18px; /* Increased font size for the input box */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Legend Styles */
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  font-size: 16px; /* Increased font size */
+  font-weight: bold; /* Bold font */
+  color: black; /* Black color */
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.legend-color.present {
+  background-color: #66bb6a;
+}
+
+.legend-color.half-day {
+  background-color: #ffa726;
+}
+
+.legend-color.absent {
+  background-color: #ef5350;
+}
+
+.legend-color.not-taken {
+  background-color: #e0e0e0;
+}
+
+/* Grid Background */
+.year-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: linear-gradient(145deg, #FEF9D9, #e6e6e6);
+  padding: 10px;
+  margin-left: 15%; /* Reduced margin for laptop and computer */
+  margin-right: 15%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Month grid layout */
+.month-grid {
+  flex: 1 1 calc(33% - 40px); /* Three columns */
+  margin: 15px;
+  background-color: #ffff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.month-grid h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.weekdays-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 5px;
+  margin-left: 15px;
+  /* text-align: center; */
+}
+
+.weekday-header {
+  font-weight: bold;
+  color: black;
+}
+
+/* Day Cell grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-left: 15px;
+}
+
+/* Day Cell styles */
+.grid-cell {
+  margin: 1px;
+  padding: 5px;
+  width: 22px; /* Reduced width */
+  height: 22px; /* Reduced height */
+  border-radius: 3px;
+  text-align: center;
+  transition: transform 0.2s;
+  background-color: #e0e0e0; /* Default to attendance not taken color */
+}
+
+/* Status Styles */
+.grid-cell.present {
+  background-color: #66bb6a;
+}
+
+.grid-cell.absent {
+  background-color: #ef5350;
+}
+
+.grid-cell.half-day {
+  background-color: #ffa726;
+}
+
+/* Hover Effects */
+.grid-cell:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .month-grid {
+    flex: 1 1 calc(50% - 30px); /* Two columns */
+  }
+
+  .year-grid {
+    margin-left: 40px; /* Further reduced margin for tablets */
+    margin-right: 40px;
+  }
+
+  .grid-cell {
+    width: 18px; /* Smaller for tablets */
+    height: 18px;
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .month-grid {
+    flex: 1 1 100%; /* One column */
+  }
+
+  .year-grid {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .legend-item {
+    margin-bottom: 10px;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-cell {
+    width: 15px; /* Smaller for phones */
+    height: 15px;
+  }
+}

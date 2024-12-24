@@ -1,0 +1,153 @@
+.admin-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.table-section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.info-table th, .info-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.info-table th {
+  background-color: #f2f2f2;
+}
+.page{
+  font-size: 20px;
+}
+
+.info-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.update-btn, .delete-btn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+.adminBtn {
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.adminBtn.edit-btn {
+  background-color: #28a745; /* Green for Edit */
+}
+
+.adminBtn.delete-btn {
+  background-color: #dc3545; /* Red for Delete */
+}
+
+.adminBtn.edit-btn:hover {
+  background-color: #218838;
+}
+
+.adminBtn.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.btn-save {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+.edit-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  gap: 10px;
+}
+
+.edit-form input {
+  padding: 10px;
+  border: 1px solid #ec7373;
+  border-radius: 4px;
+  font-size: 1em;
+}
+.goto-card {
+  background-color: #fff; /* White background for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the card */
+  margin: 20px auto; /* Center the card */
+  max-width: 600px; /* Restrict card width */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+}
+
+.goto-card a.categories {
+  display: block; /* Make the link a block for better clickability */
+  color: black; /* Blue color for the link */
+  text-decoration: none; /* No underline */
+  font-size: 1.5em; /* Slightly larger font size */
+  font-weight: bold; /* Bold font for emphasis */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+.goto-card p {
+  font-size: 1em; /* Adjusted paragraph font size */
+  color: #666; /* Dark gray color for text */
+  margin-bottom: 15px; /* Space below paragraph */
+  line-height: 1.5; /* Improve readability */
+}
+
+.goto-card a.page {
+  display: flex; /* Flexbox for aligning text and icon */
+  align-items: center; /* Center items vertically */
+  font-size: 1em; /* Font size for manage link */
+  color: #286aa7; /* Green color for actionable items */
+  text-decoration: none; /* No underline */
+  font-weight: bold;
+}
+
+.goto-card svg {
+  margin-left: 5px; /* Space between text and icon */
+  width: 16px; /* Adjust icon width */
+  height: 16px; /* Adjust icon height */
+  fill: currentColor; /* Icon color matches the text */
+}
+
+/* Hover effects for interactivity */
+.goto-card a:hover {
+  text-decoration: underline; /* Underline on hover for links */
+}
+
+.goto-card a.page:hover {
+  color: #218838; /* Darker green on hover for manage link */
+}

@@ -1,0 +1,160 @@
+/* General Styles */
+.report-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color:#FFDC7F ;
+  text-align: left;
+}
+
+.title {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.student-name {
+  font-size: 28px;
+  color: #007bff;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.exam-scores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exam-scores p {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.final-performance {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Performance Colors */
+.final-performance.brown {
+  background-color: brown;
+}
+
+.final-performance.silver {
+  background-color: silver;
+}
+
+.final-performance.gold {
+  background-color: gold;
+}
+
+/* Responsive Styles */
+
+/* For large desktops */
+@media (min-width: 1200px) {
+  .report-container {
+    padding: 30px;
+  }
+}
+
+/* For laptops and desktops */
+@media (max-width: 1199px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .student-name {
+    font-size: 26px;
+  }
+
+  .section h3 {
+    font-size: 22px;
+  }
+
+  .exam-scores p {
+    font-size: 17px;
+  }
+
+  .final-performance {
+    font-size: 18px;
+  }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .report-container {
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .student-name {
+    font-size: 24px;
+  }
+
+  .section h3 {
+    font-size: 20px;
+  }
+
+  .exam-scores p {
+    font-size: 16px;
+  }
+
+  .final-performance {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .report-container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .student-name {
+    font-size: 20px;
+  }
+
+  .section h3 {
+    font-size: 18px;
+  }
+
+  .exam-scores p {
+    font-size: 14px;
+  }
+
+  .final-performance {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
