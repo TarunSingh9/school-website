@@ -9,7 +9,7 @@ const studentRoutes = require('./routes/studentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const contactUsRoutes = require('./routes/contactUsRoutes');
-
+const admissionFormRoutes = require('./routes/admissionfdetailsRoutes');
 
 
 const app = express();
@@ -24,7 +24,7 @@ app.use('/api/attendance', attendanceRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/teachers', teacherRoutes);
 app.use('/api/admin', adminRoutes);
-
+app.use('/api/admissionforms', admissionFormRoutes);
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/studentdb', {
   useNewUrlParser: true,
